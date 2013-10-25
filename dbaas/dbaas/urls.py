@@ -4,8 +4,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.views.generic.base import RedirectView
-
 from django.contrib import admin
+
+from . import views
 from adminplus.sites import AdminSitePlus
 import django_services.api.urls
 
@@ -15,8 +16,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', RedirectView.as_view(url='/admin'), name='home'),
-    # url(r'^dbaas/', include('dbaas.foo.urls')),
-
+    #url(r'^dbaas/', include('dbaas.foo.urls')),
+    url(r'^dbaas/', views.home, name='dbaas.home'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

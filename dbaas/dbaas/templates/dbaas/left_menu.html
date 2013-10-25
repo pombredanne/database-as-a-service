@@ -1,0 +1,12 @@
+{% if user.is_authenticated %}
+<div class="span3">
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        {% if user.is_staff %}
+        <li class="nav-header">Admin's Menu</li>
+        <li><a href="/admin">Advanced</a></li>
+        {% endif %}
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->
+{% endif %}
